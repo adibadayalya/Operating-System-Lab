@@ -13,25 +13,19 @@ int main ()
       printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (), getppid ());
       wait (NULL);
       third_child = fork ();
-      if (third_child == 0)
-	{
-	  printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),
-		  getppid ());
-	  wait (NULL);
-	}
-      else
-	{
-	  fourth_child = fork ();
-	  if (fourth_child == 0)
-	    {
-	      printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),
-		      getppid ());
-	      wait (NULL);
-	    }
+      if (third_child == 0){
+		  	printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (), getppid ());
+		  	wait (NULL);
+		}
+      else{
+	  	fourth_child = fork ();
+	  	if (fourth_child == 0){
+	  	    printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),getppid ());
+	  	    wait (NULL);
+		}
 	  else
 	    {
-	      printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),
-		      getppid ());
+	      printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),getppid ());
 	      wait (NULL);
 	    }
 	}
@@ -68,11 +62,11 @@ int main ()
 		}
 	    }
 	}
-      else
+/*       else
 	{
 	  printf ("[CHILD] pid %d from [PARENT] pid %d\n", getpid (),
 		  getppid ());
 	  wait (NULL);
-	}
+	} */
     }
 }
